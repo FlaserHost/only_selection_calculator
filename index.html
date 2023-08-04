@@ -1,0 +1,3506 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Калькулятор подбора</title>
+    <link rel="stylesheet" href="calculator_pers.css">
+    <link rel="stylesheet" href="calculator_adaptive_pers.css">
+</head>
+<body>
+<section class="main-content__calculator" id="calculator-section">
+    <h2>Сравнить тарифы на облачную версию</h2>
+    <div class="calculator-form-wrapper">
+        <div class="new-form-area">
+            <h3>Заполните поля, чтобы рассчитать стоимость</h3>
+            <form class="new-calculator-form" id="new-calculator-form" action="#" method="POST">
+                <input id="discount-percent" name="discount-percent" type="hidden" value="Для PHP вставки значения">
+                <input id="discount-time" name="discount-time" type="hidden" value="Для PHP вставки значения">
+                <div class="new-calculator-form__new-form-fields">
+                    <div class="field-area field-area-1">
+                        <div class="input-place">
+                            <input class="form-field form-field-1" id="kedo-field" name="kedo-field" type="number" value="1">
+                            <div class="triangle-btn triangle-up" data-property="up"></div>
+                            <div class="triangle-btn triangle-down" data-property="down"></div>
+                        </div>
+                        <div class="field-description">
+                            <label for="kedo-field">Количество рекрутеров</label>
+                        </div>
+                    </div>
+                    <div class="field-area field-area-2">
+                        <div class="input-place">
+                            <input class="form-field form-field-2" id="vcep-field" name="vcep-field" type="number" value="0">
+                            <div class="triangle-btn triangle-up" data-property="up"></div>
+                            <div class="triangle-btn triangle-down" data-property="down"></div>
+                        </div>
+                        <div class="field-description">
+                            <div class="question-mark"></div>
+                            <label for="vcep-field">Одновременных сессий внутренних клиентов</label>
+                            <div class="question-hint">
+                                <p><span class="bold-text">Одновременных</span> подключений к базе пользователей с ролями: внутренний клиент, сотрудник СБ и др. При количестве подключений свыше 50 - расчет по запросу</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="new-form-btns">
+                    <a class="new-form-btn new-form-btn-1" id="consultation-btn" href="#" target="_Blank">Запросить счет</a>
+                    <button class="new-form-btn new-form-btn-2" id="calculate-btn" type="submit">Рассчитать</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="rates-outer-block">
+        <div class="sticky-rink">
+            <article class="rates-wrapper">
+                <table class="table-rates">
+                    <tr class="header-row">
+                        <th>Тарифы</th>
+                        <td>Быстрый старт</td>
+                        <td>Расширенный</td>
+                        <td>Корпоративный</td>
+                    </tr>
+                    <tr class="prices-row">
+                        <th>Стоимость</th>
+                        <td>
+                            <span class="price fast-start">4 000 руб</span>
+                            <div class="block_with_question_mark">
+                                <span class="period">за 1 месяц</span>
+                                <div class="question-mark"></div>
+                                <div class="question-hint">
+                                    <p>предоплата за полгода</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="price extended">8 000 руб</span>
+                            <div class="block_with_question_mark">
+                                <span class="period">за 1 месяц</span>
+                                <div class="question-mark"></div>
+                                <div class="question-hint">
+                                    <p>предоплата за полгода</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="request-rate-flex">
+                            <span class="price">по запросу</span>
+                        </td>
+                    </tr>
+                </table>
+            </article>
+            <div class="functions-window">
+                <div class="functions-window__table-place">
+                    <table class="functions-table">
+                        <tr class="pivot-header">
+                            <th colspan="3">Работа с резюме и базой кандидатов</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Хранение в базе резюме кандидатов поможет начинать работу по вакансии не с нуля,
+                                        а с тех специалистов, с которыми у вас уже есть история взаимодействия
+                                    </p>
+                                </div>
+                                Лимит количества кандидатов в базе
+                            </td>
+                            <td>Без ограничений</td>
+                            <td>Без ограничений</td>
+                            <td>Без ограничений</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        В карточке кандидата хранится вся детальная информация по нему:
+                                        резюме, фото, файлы, анкеты, история взаимодействия, согласования по каждой вакансии,
+                                        комментарии участников процесса, оценка по компетенциям, прохождение тестирования,
+                                        записи видеоинтервью, согласие на обработку персональных данных
+                                    </p>
+                                </div>
+                                Создание карточки кандидата
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность продолжать работу с уже знакомыми кандидатами:
+                                        мы бесплатно перенесем вашу базу кандидатов из таблицы Excel.
+                                        Будут перенесены: ФИО кандидата, его контакты, должность и компания,
+                                        зарплатные ожидания, дата рождения и ваш комментарий
+                                    </p>
+                                </div>
+                                Бесплатный перенос базы резюме из файла Excel
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        При загрузке резюме из текстового файла в системе создаётся карточка кандидата,
+                                        в которую и добавляется полученная информация, а также фото, если оно есть.
+                                        При этом происходит проверка на отсутствие дублей
+                                    </p>
+                                </div>
+                                Распознавание резюме из файлов DOCX, RTF, TXT
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Сохранение резюме одним кликом с job-сайтов: HeadHunter, SuperJob, Авито (через API и парсинг)
+                                    </p>
+                                </div>
+                                Загрузка резюме кандидатов с работных сайтов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Получение откликов по вакансиям прямо с рабочего пространства рекрутера нажатием одной кнопки
+                                    </p>
+                                </div>
+                                Автоматический сбор откликов с работных сайтов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Расширение для браузера Google Chrome помогает легко и быстро загружать резюме с работных сайтов
+                                    </p>
+                                </div>
+                                Расширение для браузера
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность искать, просматривать и загружать кандидатов прямо с рабочего пространства рекрутера.
+                                        Загрузка осуществляется при помощи API или парсинга сайта
+                                    </p>
+                                </div>
+                                Встроенный браузер для работы с работными сайтами
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        При загрузке новых кандидатов система в автоматическом режиме проверяет их
+                                        на совпадения с ранее загруженными и при необходимости позволяет объединять
+                                        с уже имеющимися кандидатами. Сопоставление осуществляется по таким критериям
+                                        как адрес электронной почты, мобильный телефон, ссылка на соцсети или связка
+                                        двух полей: ФИО и дата рождения
+                                    </p>
+                                </div>
+                                Автоматическое распознавание дублей
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Кандидату по кнопке открывается анкета, которая после заполнения им
+                                        автоматически попадает в вашу систему. Функционал осуществляется с использованием Yandex Forms
+                                    </p>
+                                </div>
+                                Обработка откликов с корпоративного портала
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        При пересылке писем с резюме на специальный адрес система распознает полученное резюме,
+                                        добавит в базу и уведомит вас о результатах импорта
+                                    </p>
+                                </div>
+                                Автоматический импорт резюме с электронной почты
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        В карточке кандидата хранится вся история взаимодействия с ним:
+                                        движение по воронке подбора, изменения статусов, входящие и исходящие
+                                        сообщения из всех каналов взаимодействия с ним (email и мессенджеры),
+                                        переписка с чат-ботом, результаты тестирований, записи видеоинтервью,
+                                        а также все комментарии пользователей по данному кандидату
+                                    </p>
+                                </div>
+                                Хранение истории действий и комментариев по кандидату
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Поиск можно настроить по абсолютно любым параметрам: полнотекстовый поиск по имени,
+                                        фамилии или тексту резюме, поиск по частичному совпадению. Можно указать область поиска,
+                                        а также использовать фильтры и логические операторы
+                                    </p>
+                                </div>
+                                Поиск кандидатов в общей базе по любым реквизитам
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Если кандидат указал ссылку на свою страницу в соцсети,
+                                        то можно перейти на неё прямо из карточки кандидата
+                                    </p>
+                                </div>
+                                Возможность перехода в социальные сети кандидата из карточки кандидата
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Система позволяет сформировать внешний кадровый резерв из кандидатов,
+                                        не подошедших сейчас по каким-то причинам, но представляющих определённый интерес
+                                    </p>
+                                </div>
+                                Формирование внешнего кадрового резерва кандидатов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Формирование "гибких" списков кандидатов, добавление в списки любых
+                                        доступных реквизитов карточки кандидата, интерактивный отбор и сортировка
+                                    </p>
+                                </div>
+                                Настраиваемые списки кандидатов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Можно получить данные как в виде таблицы, так и списком.
+                                        При этом есть возможность выбрать, какие именно данные должны быть представлены:
+                                        ФИО, телефон, должность и т.д. Доступные форматы xls, doc, pdf, htm, mxl, htm, txt
+                                    </p>
+                                </div>
+                                Выгрузка списка кандидатов в файл
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Информацию в карточке кандидата можно редактировать и добавлять дополнительные характеристики,
+                                        как из предопределённого списка, так и создавать новые
+                                    </p>
+                                </div>
+                                Добавление реквизитов в карточку кандидата
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        При необходимости система позволяет скрывать часть
+                                        реквизитов кандидата от согласующих, например, информацию о зарплате
+                                    </p>
+                                </div>
+                                Возможность скрыть часть реквизитов от участников согласования
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        В системе реализована возможность фиксировать участников реферальной программы, а также размер вознаграждения по ней
+                                    </p>
+                                </div>
+                                Реферальная программа
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Лимиты на объем облачного хранилища, в котором хранится информация по кандидатам, записи телефонных разговоров
+                                    </p>
+                                </div>
+                                Объем места в облачном хранилище
+                            </td>
+                            <td>до 80 ГБ на базу</td>
+                            <td>До 160 ГБ на базу</td>
+                            <td>Без ограничений</td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Работа с вакансиями</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Количество вакансий со статусом «В работе»
+                                    </p>
+                                </div>
+                                Лимит количества активных вакансий
+                            </td>
+                            <td>Без ограничений</td>
+                            <td>Без ограничений</td>
+                            <td>Без ограничений</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        При создании заявки на вакансию у внутреннего заказчика есть возможность заполнить
+                                        необходимые характеристики одной кнопкой: либо по должности, либо по штатной единице
+                                    </p>
+                                </div>
+                                Создание заявки на подбор
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Согласование происходит в соответствии с настраиваемым маршрутом (параллельно или последовательно)
+                                    </p>
+                                </div>
+                                Согласование вакансии с внутренним заказчиком
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        У рекрутера есть возможность создать вакансию без заявки и без согласования, а также редактировать её
+                                    </p>
+                                </div>
+                                Возможность создания вакансий без заявки
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Отслеживание информации о сроках размещения вакансий на каждом из сайтов.
+                                        Повторные размещение объявлений, срок публикации которых истек
+                                    </p>
+                                </div>
+                                Публикация вакансий «одним нажатием» на работных сайтах
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Автоматический расчет дедлайна вакансии с учетом производственного календаря
+                                    </p>
+                                </div>
+                                Установка сроков вакансии и количества финальных кандидатов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Данные признаки устанавливаются в процессе создания вакансии. «Конфиденциальная» вакансия видна только заказчикам и рекрутерам,
+                                        имеющим к ней отношение. Настройки конфиденциальности можно поменять. «Массовая» вакансия не имеет планового срока,
+                                        даты закрытия и установленного количества открытых позиций. Признак массовости нельзя отменить
+                                    </p>
+                                </div>
+                                Возможность создания «массовой» и «конфиденциальной» вакансии
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        С учетом локации вакансии, можно рассматривать кандидатов, проживающих по-близости
+                                    </p>
+                                </div>
+                                Возможность привязки вакансии к региону/офису/локации
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Каждая вакансия или кандидат закрепляются за рекрутером, который по ним работает.
+                                        Рекрутера можно поменять на любом этапе воронки подбора
+                                    </p>
+                                </div>
+                                Закрепление вакансии и кандидатов за рекрутерами
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Есть возможность выбрать, какие именно данные должны быть представлены:
+                                        по кандидатам - ФИО, телефон, статус рассмотрения и другие; по вакансии – статус,
+                                        дата открытия, количество финальных кандидатов и т.д.
+                                        Доступные форматы xls, doc, pdf, htm, mxl, htm, txt
+                                    </p>
+                                </div>
+                                Выгрузка списка кандидатов по вакансии и списка вакансий в файл
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Формирование профиля должности. Набор требований и компетенций,
+                                        отсеивающие критерии, ранжирование соискателей на соответствие профилю должности
+                                    </p>
+                                </div>
+                                Настройка критериев оценки кандидатов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Система позволяет прикреплять любые необходимые файлы (размером до 50 Мб) к вакансии и в любом количестве
+                                    </p>
+                                </div>
+                                Прикрепление файлов к вакансии
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        При необходимости приостановить подбор по вакансии, установите ей статус «Приостановлена»,
+                                        тогда система вычтет дни приостановки из общего срока работы над вакансией
+                                    </p>
+                                </div>
+                                Приостановка (холд) вакансии
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность редактировать вакансию и добавлять в неё необходимые дополнительные характеристики
+                                    </p>
+                                </div>
+                                Добавление реквизитов в карточку вакансии
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        В карточке вакансии можно увидеть всю информацию по ней: её статус,
+                                        дату открытия, исполнение сроков, количество запланированных и финальных кандидатов)
+                                    </p>
+                                </div>
+                                Отображение информации по вакансии
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Воронка подбора (трекинг кандидата)</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Настройка воронки подбора по вашему сценарию: состав, последовательность этапов,
+                                        статусы кандидатов, необходимые согласования
+                                    </p>
+                                </div>
+                                Возможность настройки воронки подбора
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Воронка подбора может состоять из неограниченного количества этапов.
+                                        Ведь все этапы подбора, существующие в реальном бизнес-процессе,
+                                        должны обязательно быть в рекрутинговой программе
+                                    </p>
+                                </div>
+                                Настройка неограниченного количества этапов в воронке подбора
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        В зависимости от направления подбора воронки могут содержать разное количество этапов.
+                                        Настройка разных воронок для разных вакансий позволит облегчить и улучшить работу рекрутера,
+                                        а также сделает аналитику максимально точной и достоверной
+                                    </p>
+                                </div>
+                                Разные воронки под разные направления подбора
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Добавление типовых причин отказа, встречающихся в процессе подбора, позволяет
+                                        анализировать их с целью обнаружения и исправления скрытых проблем.
+                                        Список причин отказа можно пополнять в процессе работы – без ограничений
+                                    </p>
+                                </div>
+                                Настройка типовых причин отказа
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        При необходимости можно переводить кандидата на любой этап,
+                                        минуя один или несколько этапов в воронке, либо создавая дополнительные
+                                    </p>
+                                </div>
+                                Возможность перемещать кандидатов на любой этап воронки подбора
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Можно настроить так, чтобы заказчик, сотрудник СБ, ещё кто-то,
+                                        имеющий отношение к вакансии, имел возможность самостоятельно
+                                        перевести кандидата на следующий этап там, где не требуется участие рекрутера
+                                    </p>
+                                </div>
+                                Возможность перевода кандидата по статусам не HR-подразделениями
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Установка целевых сроков позволяет контролировать время нахождения
+                                        кандидатов на каждом этапе и предотвращать их «зависание»
+                                    </p>
+                                </div>
+                                Информация о времени нахождения кандидата в каждом из статусов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Система составляет рейтинг кандидатов по каждой вакансии,
+                                        т.е. определяет их соответствие требованиям вакансии методом сопоставления характеристик
+                                    </p>
+                                </div>
+                                Автоматический расчет рейтинга кандидатов по вакансии
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность ранжирования тестов и опросников для кандидатов в зависимости от вакансии
+                                    </p>
+                                </div>
+                                Настройка тестовых заданий для разных вакансий
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность тестирования кандидатов при помощи чат-ботов
+                                        в удобное для соискателя время и на любом устройстве (смартфон, планшет, ПК)
+                                    </p>
+                                </div>
+                                Дистанционное тестирование кандидатов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Система позволяет осуществлять массовый перевод кандидатов на следующий этап
+                                        воронки одной кнопкой. Таким же образом можно осуществлять массовый отказ кандидатам
+                                    </p>
+                                </div>
+                                Массовый перевод кандидатов на следующий этап или отклонение
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Работа с заказчиками</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Согласование как внутренним заказчиком, нанимающим менеджером, так и СБ.
+                                        Возможность установления сроков согласования
+                                    </p>
+                                </div>
+                                Согласование кандидатуры соискателя
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможные документы для согласования: оффер, мед.осмотр, анкета СБ и пр
+                                    </p>
+                                </div>
+                                Согласование внутренних документов, отправляемых кандидату
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможна отправка резюме на почту или в мессенджер на согласование
+                                    </p>
+                                </div>
+                                Возможность экспорта резюме соискателя в виде отдельного файла
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Комментарии по кандидату могут оставлять все участники и на всех этапах воронки
+                                    </p>
+                                </div>
+                                Возможность комментировать кандидата
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Календарь ведется отдельно для каждого пользователя системы: рекрутер, внутренний клиент и т.п
+                                    </p>
+                                </div>
+                                Встроенный корпоративный календарь
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        В системе существует интеграция с календарями Google и Outlook.
+                                        Возможна отправка уведомлений о запланированных событиях всем участникам прямо из календаря
+                                    </p>
+                                </div>
+                                Планирование встреч в календарях Google и Outlook (Exchange)
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        При планировании встречи с кандидатом реализована возможность выбора и бронирования переговорных.
+                                        Система подскажет, если данная переговорная на нужное время уже занята
+                                    </p>
+                                </div>
+                                Бронирование переговорных
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность гибкой настройки любого шаблона документа от оффера до направления на медосмотр по вашим макетам
+                                    </p>
+                                </div>
+                                Создание шаблонов документов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Система дает возможность заказчику видеть статистику по всем этапам его вакансий,
+                                        что делает процесс рекрутинга прозрачным и снимает вопросы к рекрутеру
+                                    </p>
+                                </div>
+                                Статистика для заказчика по его вакансиям
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Брендирование личного кабинета вашим фирменным стилем наделяет его
+                                        индивидуальностью и пропитывает корпоративным духом вашей компании
+                                    </p>
+                                </div>
+                                Брендирование личного кабинета
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Мессенджеры, Email, SMS и IP-телефония</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность использования чат-бота для общения с кандидатами, проведения опросов и тестирования
+                                    </p>
+                                </div>
+                                Интеграция с Telegram
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность использования чат-бота для общения с кандидатами, проведения опросов и тестирования
+                                    </p>
+                                </div>
+                                Интеграция с Viber
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Система позволяет обмениваться сообщениями с кандидатом через рабочий стол рекрутера. Необходим бизнес-аккаунт. Стоимость 1200 руб/мес.
+                                    </p>
+                                </div>
+                                <a class="whatsapp-link" href="#" download>Интеграция с WhatsApp</a>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность использования чат-бота для общения с кандидатами, проведения опросов и тестирования
+                                    </p>
+                                </div>
+                                Интеграция с VK
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность отправлять кандидатам и внутренним клиентам
+                                        SMS-сообщения по заранее установленным шаблонам с переменными или без
+                                    </p>
+                                </div>
+                                Отправка SМS
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Отправка писем кандидатам прямо с рабочего пространства рекрутера.
+                                        При этом вся переписка сохраняется как в почтовом ящике рекрутера, так и в карточке кандидата
+                                    </p>
+                                </div>
+                                Встроенный почтовый клиент (email) для переписки с кандидатом
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Система покажет, открыл кандидат ваше письмо или нет
+                                    </p>
+                                </div>
+                                Отслеживание открытия письма кандидатом
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Вызов мессенджера происходит из карточки кандидата в случае, если указан его логин
+                                    </p>
+                                </div>
+                                Интеграция с Skype, Zoom, Google Meet
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Реализована интеграция с виртуальной АТС "МИКО". Оператор IP-телефонии выбирается компанией самостоятельно
+                                    </p>
+                                </div>
+                                Созвон с кандидатом по данным из карточки с помощью IP-телефонии
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        При входящем звонке у рекрутера сразу открывается карточка кандидата
+                                    </p>
+                                </div>
+                                Входящие вызовы от созданных кандидатов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        При входящем звонке переадресация происходит на рекрутера, который работает с кандидатом по вакансии
+                                    </p>
+                                </div>
+                                Маршрутизация входящих вызовов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Перевести звонок на другого рекрутера или сотрудника можно во время разговора в блоке активного звонка
+                                    </p>
+                                </div>
+                                Перевод звонка
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Сюда входит: "Прослушать" - вы слушаете разговор рекрутера с кандидатом,
+                                        при этом они вас не слышат. Они не уведомляются, что их подслушивают.
+                                        "Шепнуть"- вы слушаете разговор рекрутера с кандидатом. То что вы скажете,
+                                        услышит рекрутер, на которого функция вызвана. Кандидат, с которым он
+                                        разговаривает, вас не услышит. "Присоединиться к разговору" - вы подключаетесь
+                                        к разговору третьим участником. По своей сути образуется конференция из 3 абонентов
+                                    </p>
+                                </div>
+                                Функция супервизор с подключением к активному звонку
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        При открытии профиля кандидата, в ленте событий «Журнал звонков» хранятся аудиофайлы с записью разговора рекрутера и кандидата
+                                    </p>
+                                </div>
+                                Запись и хранение разговоров с привязкой к кандидатам
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Кто из рекрутеров больше принимает звонков с положительными или отрицательными решениями, сколько длятся звонки
+                                    </p>
+                                </div>
+                                Аналитика по звонкам
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Отчет по звонкам:
+                                        какой рекрутер принял,
+                                        от кого принял,
+                                        сколько длился звонок,
+                                        какое решение было принято по окончании разговора
+                                    </p>
+                                </div>
+                                Выгрузка в Excel отчета по звонкам
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        При занятости всех сотрудников на линии может по шаблону узнать нужную информацию от кандидата,
+                                        записать ее, и после окончания разговора данная задача уйдет в работу рекрутеру
+                                    </p>
+                                </div>
+                                Виртуальный автоответчик
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Сервис, позволяющий переводить разговор с кандидатом в текст
+                                    </p>
+                                </div>
+                                Речевая аналитика
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Независимо от местоположения, когда вы создаете мероприятие,
+                                        для каждого участника время будет автоматически указано в его часовом поясе
+                                    </p>
+                                </div>
+                                Учет часового пояса каждого участника встречи
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Уведомления и напоминания</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Отправка персонализированных сообщений (СМС, мессенджеры, электронная почта)
+                                        по этапу как внутреннему заказчику, так и кандидату
+                                    </p>
+                                </div>
+                                Автоматическая отправка уведомлений, приглашений
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Отправка кандидату напоминаний об интервью и информирование о статусе
+                                        рассмотрения его кандидатуры с использованием мессенджеров, СМС, электронной почты
+                                    </p>
+                                </div>
+                                Информирование кандидата
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Позволяет напомнить рекрутеру выполнить определенное действие по кандидату (например, позвонить)
+                                    </p>
+                                </div>
+                                Возможность включить напоминание по кандидату
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Можно настроить отправку уведомлений заказчику или кандидату только
+                                        об определенных действиях, а не обо всех
+                                    </p>
+                                </div>
+                                Возможность отключения определенных уведомлений
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность создавать шаблоны писем с переменными,
+                                        которые система будет автоматически заменять именем кандидата,
+                                        названием вакансии, датой и временем собеседования и др.
+                                    </p>
+                                </div>
+                                Настройка шаблонов для уведомлений
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Отправка результатов согласования всем участникам согласования, в том числе и кандидату
+                                    </p>
+                                </div>
+                                Автоматическая отправка результатов согласования
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Внутренний чат с использованием подсистемы взаимодействия 1С
+                                    </p>
+                                </div>
+                                Внутренний чат с заказчиками по каждому кандидату
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Добавление вашего логотипа во все необходимые шаблоны документов, писем и уведомлений
+                                    </p>
+                                </div>
+                                Ваш логотип в письмах-шаблонах
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Видеоинтервью (виртуальный рекрутер)</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Видеоинтервью в удобное для кандидата время, в любом месте и с любого
+                                        устройства (планшет, смартфон, ноутбук, ПК) без участия рекрутера (асинхронное)
+                                    </p>
+                                </div>
+                                Первичное видеоинтервью без участия рекрутера
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Для каждой вакансии создается свой сценарий видеоинтервью.
+                                        Вопросы от рекрутера записываются в формате видео и воспроизводятся согласно построенному сценарию
+                                    </p>
+                                </div>
+                                Создание сценариев видеинтервью на каждую вакансию
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Вопросы в видеоинтервью могут быть как в формате видео, так и в виде текста
+                                    </p>
+                                </div>
+                                Текстовые или видео-вопросы для видеоинтервью
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Осуществляется автоматическая расшифровка видеоинтервью от кандидатов для дальнейшего анализа
+                                    </p>
+                                </div>
+                                Автоматическая транскрибация видеоинтервью кандидатов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        По результатам видеоинтервью можно получить прогноз по личностным качествам
+                                        кандидата с использованием искусственного интеллекта.
+                                        В системе представлены 8 обученных моделей
+                                    </p>
+                                </div>
+                                Оценка личностных качеств кандидата с использованием ИИ
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Нейросеть поможет оценить кандидата по компетенциям
+                                        в результате тестирования и дать рекомендации по переводу его на следующий этап
+                                    </p>
+                                </div>
+                                Рекомендации по переводу кандидата на следующий этап с помощью нейросети
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Автоматизированные процессы (роботизация)</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Автоматическая обработка полученных откликов с сайта, перевод кандидата
+                                        на определенный этап на основании настроенных условий.
+                                        Различные сценарии для разных вакансий и категорий кандидатов
+                                    </p>
+                                </div>
+                                Автоматическая обработка откликов по правилам
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Настроенный чат-бот (Telegram, Viber, Whatsapp, VK)
+                                        для проведения опросов, тестирования, отсеивания или информирования кандидатов
+                                    </p>
+                                </div>
+                                Чат-бот для опросов и тестирования
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Так как для рекрутера дорога каждая минута рабочего времени,
+                                        то скрининг помогает не тратить время на длительные собеседования с
+                                        заведомо неподходящими кандидатами
+                                    </p>
+                                </div>
+                                Скрининг кандидатов с отсевом неподходящих по заданным критериям
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Поиск подходящих под вакансию кандидатов на основании определенного
+                                        набора критериев (на основе методов ИИ)
+                                    </p>
+                                </div>
+                                Автоматический поиск и загрузка резюме
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Аналитика подбора и KPI рекрутера</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        В интерактивном отчете «Воронка подбора» мы видим на одном экране
+                                        всю картину по воронке, источникам, отказам и их причинам
+                                    </p>
+                                </div>
+                                Аналитика подбора с отбором по вакансии, рекрутеру, каналу, направлению
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        С помощью отчета «Загрузка рекрутеров» можно увидеть всю статистику по каждому рекрутеру:
+                                        все открытые вакансии, время на работу с кандидатами, число кандидатов в работе и др.
+                                    </p>
+                                </div>
+                                Аналитика по отдельному рекрутеру и команде
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Можно проанализировать, по каким каналам подбора к нам попадает наибольшее количество успешных кандидатов
+                                    </p>
+                                </div>
+                                Оценка эффективности каналов подбора
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Отчет показывает, сколько позиций и какими кандидатами было закрыто,
+                                        в какой срок с учетом производственного календаря и какими рекрутерами
+                                    </p>
+                                </div>
+                                Аналитика по срокам закрытия заявки на подбор
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Система ставит на контроль вакансии, по которым заканчиваются сроки
+                                    </p>
+                                </div>
+                                Контроль сроков закрытия вакансий
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Сроки нахождения кандидата на одном этапе воронки подбора контролируются на рабочем столе рекрутера
+                                    </p>
+                                </div>
+                                Контроль сроков нахождения кандидата на одном этапе воронки подбора
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность анализа как по отказам кандидатов, так и по отказам компании
+                                    </p>
+                                </div>
+                                Аналитика причин отказов по этапам воронки
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        С помощью фильтров вы сами можете настроить отчет в таком виде, который нужен
+                                    </p>
+                                </div>
+                                Гибкая настройка отчетов с использованием фильтров
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Данные любого отчета могут быть выгружены в формате Excel
+                                    </p>
+                                </div>
+                                Выгрузка отчетов в Excel
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Безопасность и требования законодательства</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Отправка брендированного письма кандидатам с рабочей почты рекрутера с
+                                        автоматизированным запросом согласия на обработку персональных данных в соответствии с 152-ФЗ.
+                                        Письмо содержит текст согласия, предоставленный юристами
+                                    </p>
+                                </div>
+                                Онлайн-запрос согласия кандидата на обработку ПД
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Выгрузка в Excel отчета по кандидатам, которые не дали решения или
+                                        запретили обрабатывать свои персональные данные
+                                    </p>
+                                </div>
+                                Выгрузка в Excel отчета по согласиям на обработку ПД
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        По требованию кандидата или при отзыве им согласия на обработку ПД осуществляется деперсонализация данных.
+                                        Система позволяет полностью выполнять требования законодательства по защите персональных данных кандидатов
+                                    </p>
+                                </div>
+                                Деперсонализация данных в соответствии с требованиями законодательства РФ
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность для безопасного входа на портал с использованием Облегченного протокола доступа к каталогу Windows Active Directory.
+                                        Гибридная идентификация позволяет создавать общие пользовательские удостоверения для проверки подлинности
+                                        и авторизации для всех ресурсов, независимо от их расположения
+                                    </p>
+                                </div>
+                                Корпоративная авторизация с использованием Active Directory
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Параметр сложности паролей определяет, должны ли пароли соответствовать
+                                        ряду правил для надежных паролей. Если этот параметр включен, система не даст создать пароль,
+                                        не удовлетворяющий нескольким требованиям
+                                    </p>
+                                </div>
+                                Возможность установки требований к сложности паролей
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Двухэтапная аутентификация обеспечивает более надежную защиту аккаунта.
+                                        Злоумышленники не смогут в него войти, даже если узнают ваш пароль
+                                    </p>
+                                </div>
+                                Двухфакторная авторизация для пользователей
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Все четыре категории персональных данных защищены с помощью сертифицированной системы
+                                    </p>
+                                </div>
+                                Платформа сертифицирована по защите всех категорий ПД
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Расширенная функциональность</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        За счет использования модуля "Управление талантами" или "Личный кабинет сотрудника"
+                                    </p>
+                                </div>
+                                Использование оргструктуры и штатного расписания
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Интеграция заключается в синхронизации данных в системе и в базе данных компании.
+                                        При синхронизации сайт может как получать информацию из программы 1С, так и передавать данные в 1С
+                                    </p>
+                                </div>
+                                Интеграция с корпоративным сайтом заказчика
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Заполнение анкеты, выпуск электронной подписи, ознакомление с ЛНА,
+                                        подписание трудового договора. За счет использования модуля "Личный кабинет сотрудника"
+                                    </p>
+                                </div>
+                                Дистанционное трудоустройство кандидата
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        За счет использования модуля "Управление талантами"
+                                    </p>
+                                </div>
+                                Модуль тестирования кандидатов (расширенный)
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Выгрузка данных по финальному кандидату,
+                                        получение данных по приказу о приеме на работу
+                                    </p>
+                                </div>
+                                Двусторонняя интеграция с 1С:ЗУП
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        По требованию IT-безопасности разворачиваем в системе на
+                                        серверах клиента (on-premise). Для такого вида размещения обязательно
+                                        выполнение тех. требований к проекту
+                                    </p>
+                                </div>
+                                Размещение на серверах клиента (on-premise)
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Приложение, предназначенное для работы на мобильных
+                                        устройствах под управлением операционных систем iOS и Android
+                                    </p>
+                                </div>
+                                Мобильное приложение
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Простой способ оградить себя от части вызовов при помощи определителя номера на iPhone.
+                                        Сторонние сервисы собирают и актуализируют базу телефонов и подскажут, когда звонок происходит
+                                        с нежелательного номера
+                                    </p>
+                                </div>
+                                АОН для iPhone
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Организация автоматической ежедневной, еженедельной, ежемесячной или
+                                        ежеквартальной выгрузки вашей базы в формате JSON на предоставленный вами SFTP-сервер
+                                    </p>
+                                </div>
+                                Автоматическое резервное копирование базы клиента
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Услуги консультантов</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Настройка не более 3-х воронок под разные направления
+                                    </p>
+                                </div>
+                                Настройка воронки подбора под запрос
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Подключение стороннего календаря дает возможность отправки событий в личный календарь,
+                                        не добавляя дополнительно событие вручную в самом календаре.
+                                        Если в организации используется общий корпоративный домен,
+                                        после подключения календарей у рекрутеров появится возможность
+                                        видеть занятость коллег и бронировать переговорные комнаты
+                                    </p>
+                                </div>
+                                Подключение корпоративного календаря
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Услуги по настройке, обслуживанию, адаптации и модификации Продуктов или устранению имеющихся в них ошибок,
+                                        а также обновление по мере выпуска релизов ПП и дополнительных программных модулей
+                                    </p>
+                                </div>
+                                Техническая поддержка программного продукта
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Обучение работе в программе, показ основного функционала.
+                                        Первичная обработка поступающих и найденных резюме.
+                                        Интервью с соискателями, проведение тестов, оценка
+                                    </p>
+                                </div>
+                                Первичное обучение рекрутеров
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Обучение ведется на основе типовых процессов и сценариев.
+                                        Настройка бизнес-процессов, маршрутов согласования
+                                    </p>
+                                </div>
+                                Обучение администраторов по настройке
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        ТопФактор полностью готов к реализации нового функционала по вашим запросам
+                                    </p>
+                                </div>
+                                Реализация нового функционала, согласно вашим требованиям
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                                </figure>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="footnote">
+                        <figure>
+                            <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                        </figure>
+                        <p>функциональность дополнительно согласовывается в ходе сбора требований по проекту и оплачивается отдельно</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions-place mist">
+            <button class="calculator-actions show-functionality-btn" id="show-functionality-btn" type="button">Показать функционал</button>
+            <a class="calculator-actions download-comparison-table-link" id="download-comparison-table-link" href="" download>Скачать таблицу сравнения</a>
+        </div>
+    </div>
+    <div class="rates-outer-block-mobile">
+        <article class="mobile-table-place">
+            <table class="rates-mobile-table">
+                <tr>
+                    <th class="mobile-table-header rates-mobile-header">Тарифы</th>
+                    <th class="mobile-table-header rates-prices-mobile-header">Стоимость</th>
+                </tr>
+                <tr>
+                    <td class="rates-name-mobile">Быстрый старт</td>
+                    <td class="rates-price-mobile fast-start">4 000 руб</td>
+                </tr>
+                <tr>
+                    <td class="rates-name-mobile">Расширенный</td>
+                    <td class="rates-price-mobile extended">8 000 руб</td>
+                </tr>
+                <tr>
+                    <td class="rates-name-mobile">Корпоративный</td>
+                    <td class="rates-price-mobile">
+                        <span>по запросу</span>
+                        <span>за 1 месяц</span>
+                        <span>предоплата за полгода</span>
+                    </td>
+                </tr>
+            </table>
+            <a class="download-table-mobile" id="download-table-mobile" href="#" download>Скачать таблицу сравнения</a>
+        </article>
+    </div>
+</section>
+<script src="calculator.js"></script>
+</body>
+</html>
