@@ -15,8 +15,8 @@
         <div class="new-form-area">
             <h3>Заполните поля, чтобы рассчитать стоимость</h3>
             <form class="new-calculator-form" id="new-calculator-form" action="#" method="POST">
-                <input id="discount-percent" name="discount-percent" type="hidden" value="Для PHP вставки значения">
-                <input id="discount-time" name="discount-time" type="hidden" value="Для PHP вставки значения">
+                <input class="discount-field" id="discount-percent" name="discount-percent" type="hidden" value="5">
+                <input class="discount-field" id="discount-time" name="discount-time" type="hidden" value="04.09.2023">
                 <div class="new-calculator-form__new-form-fields">
                     <div class="field-area field-area-1">
                         <div class="input-place">
@@ -63,22 +63,30 @@
                     <tr class="prices-row">
                         <th>Стоимость</th>
                         <td>
-                            <span class="price fast-start">4 000 руб</span>
+                            <div class="prices">
+                                <span class="price discount fast-start">4 000 руб</span>
+                            </div>
                             <div class="block_with_question_mark">
-                                <span class="period">за 1 месяц</span>
-                                <div class="question-mark"></div>
-                                <div class="question-hint">
-                                    <p>предоплата за полгода</p>
+                                <div class="time-span">
+                                    <span class="period">за 1 месяц</span>
+                                    <div class="question-mark"></div>
+                                    <div class="question-hint">
+                                        <p>предоплата за полгода</p>
+                                    </div>
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <span class="price extended">8 000 руб</span>
+                            <div class="prices">
+                                <span class="price discount fast-start">8 000 руб</span>
+                            </div>
                             <div class="block_with_question_mark">
-                                <span class="period">за 1 месяц</span>
-                                <div class="question-mark"></div>
-                                <div class="question-hint">
-                                    <p>предоплата за полгода</p>
+                                <div class="time-span">
+                                    <span class="period">за 1 месяц</span>
+                                    <div class="question-mark"></div>
+                                    <div class="question-hint">
+                                        <p>предоплата за полгода</p>
+                                    </div>
                                 </div>
                             </div>
                         </td>
@@ -3482,11 +3490,19 @@
                 </tr>
                 <tr>
                     <td class="rates-name-mobile">Быстрый старт</td>
-                    <td class="rates-price-mobile fast-start">4 000 руб</td>
+                    <td class="rates-price-mobile">
+                        <div class="prices">
+                            <span class="rates-price-mobile discount fast-start">4 000 руб</span>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td class="rates-name-mobile">Расширенный</td>
-                    <td class="rates-price-mobile extended">8 000 руб</td>
+                    <td class="rates-price-mobile">
+                        <div class="prices">
+                            <span class="rates-price-mobile discount extended">8 000 руб</span>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td class="rates-name-mobile">Корпоративный</td>

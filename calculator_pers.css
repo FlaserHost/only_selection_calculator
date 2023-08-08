@@ -91,7 +91,8 @@ input[type="number"] {
     position: relative;
 }
 
-.question-hint {
+.question-hint,
+.discount-deadline {
     position: absolute;
     left: 0;
     top: calc(100% + 10px);
@@ -528,22 +529,21 @@ article.fixed-header-bg-color * {
 }
 
 .block_with_question_mark {
-    display: inline-block;
     position: relative;
     margin-top: 9px;
     padding-right: 17px;
 }
 
-.block_with_question_mark > .question-mark {
+.block_with_question_mark .question-mark {
     min-width: 15px;
     height: 15px;
     position: absolute;
-    right: -2px;
+    right: -21px;
     top: 50%;
-    transform: translateY(-38%);
+    transform: translateY(-42%);
 }
 
-.block_with_question_mark > .question-hint {
+.block_with_question_mark .question-hint {
     width: 230px;
     padding: 14px;
 }
@@ -560,4 +560,53 @@ a.whatsapp-link {
 
 .bold-text {
     font-weight: 900;
+}
+
+.prices {
+    position: relative;
+    display: inline-block;
+}
+
+.discount-old-price {
+    color: #828282;
+    text-decoration: line-through;
+    font-size: 15px;
+    white-space: nowrap;
+    position: absolute;
+    top: 59%;
+    transform: translateY(-50%);
+    left: calc(100% + 10px);
+}
+
+.discount-new-price {
+    color: #f00;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.price-after-discount {
+    position: relative;
+}
+
+.price-after-discount:hover > .discount-deadline {
+    opacity: 1;
+}
+
+.discount-deadline {
+    top: -15px;
+    left: 60%;
+    line-height: 24px;
+}
+
+.fixed-header-bg-color .discount-deadline {
+    color: #000;
+}
+
+.fixed-header-bg-color .discount-new-price {
+    color: #f00;
+}
+
+.time-span {
+    display: inline-block;
+    position: relative;
 }

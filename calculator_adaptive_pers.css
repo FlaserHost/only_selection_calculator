@@ -111,6 +111,25 @@
     .rates-outer-block-mobile {
         margin-top: 20px;
     }
+
+    .discount-new-price {
+        font-size: 18px;
+    }
+
+    .discount-old-price {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(100% + 10px);
+    }
+
+    .discount-deadline {
+        left: initial;
+        right: 100%;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: left;
+    }
 }
 
 @media (max-width: 376px) {
