@@ -97,7 +97,7 @@ document.getElementById('show-functionality-btn').addEventListener('click', btn 
     btn.target.innerText = currentBtnText;
 });
 
-// логика рассчета
+// логика расчета
 const priceList = {
     one_recruiter: 4000,
     additional_recruiter: 1900,
@@ -105,19 +105,56 @@ const priceList = {
     allowance: 2000
 };
 
+const calculateForm = document.getElementById('new-calculator-form');
+const discountData = document.querySelectorAll('.discount-field');
+
 document.getElementById('calculate-btn').addEventListener('click', e => {
     e.preventDefault();
-    const calculateForm = document.getElementById('new-calculator-form');
+    const discountPercent = +discountData[0].value;
+    const discountTime = discountData[1].value;
+
     const calculateData = [...new FormData(calculateForm)]; // аналогично как Array.from(new FormData(calculateForm))
 
     const tmpSumm = calculateData[2][1] > 1
         ? (--calculateData[2][1]) * priceList.additional_recruiter + priceList.one_recruiter
         : calculateData[2][1] * priceList.one_recruiter;
 
-    const fastStart = tmpSumm + calculateData[3][1] * priceList.additional_connection;
+    const fastStart = tmpSumm + calculateData[3][1] * priceList.additional_connection; // СТАРТ без скидки
+    const extended = fastStart + priceList.allowance * (++calculateData[2][1]);
 
     const fastStartFormatted = fastStart.toLocaleString();
-    const extendedFormatted = (fastStart + priceList.allowance * (++calculateData[2][1])).toLocaleString();
+    const extendedFormatted = extended.toLocaleString(); // Расширенный без скидки
+
+    const ratesPrices = document.querySelectorAll('.prices .discount');
+    const discount = document.querySelectorAll('.price-after-discount');
+
+    if (discount.length) {
+        discount.forEach(item => item.remove());
+        ratesPrices.forEach(item => item.classList.remove('discount-old-price'));
+    }
+
+    if (discountPercent > 0) {
+        const prices = document.querySelectorAll('.prices');
+
+        const fullMonthResult = fastStart - (fastStart * discountPercent / 100); // полная стоимость СТАРТ со скидкой (если есть)
+        const fullMonthResultExtended = extended - (extended * discountPercent / 100); // полная стоимость РАСШИРЕННЫЙ со скидкой (если есть)
+
+        const fastStartDiscountFormatted = Math.round(fullMonthResult).toLocaleString();
+        const extendedDiscountFormatted = Math.round(fullMonthResultExtended).toLocaleString();
+
+        const resultsArray = [fastStartDiscountFormatted, extendedDiscountFormatted].map(item => `<div class="price-after-discount">
+                    <span class="discount-new-price">${item} руб</span>
+                    <div class="discount-deadline">Срок действия акции до ${discountTime}</div>
+             </div>`);
+
+        ratesPrices.forEach(item => item.classList.add('discount-old-price'));
+
+        let counter = 0;
+        prices.forEach(item => {
+            item.insertAdjacentHTML('afterbegin', resultsArray[counter]);
+            counter = counter !== resultsArray.length - 1 ? ++counter : 0;
+        });
+    }
 
     document.querySelectorAll('.fast-start').forEach(item => item.innerHTML = `${fastStartFormatted} руб`);
     document.querySelectorAll('.extended').forEach(item => item.innerHTML = `${extendedFormatted} руб`);
