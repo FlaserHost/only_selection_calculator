@@ -107,6 +107,7 @@ const priceList = {
 
 const calculateForm = document.getElementById('new-calculator-form');
 const discountData = document.querySelectorAll('.discount-field');
+const calculateBtn = document.getElementById('calculate-btn');
 
 document.getElementById('calculate-btn').addEventListener('click', e => {
     e.preventDefault();
@@ -158,4 +159,12 @@ document.getElementById('calculate-btn').addEventListener('click', e => {
 
     document.querySelectorAll('.fast-start').forEach(item => item.innerHTML = `${fastStartFormatted} руб`);
     document.querySelectorAll('.extended').forEach(item => item.innerHTML = `${extendedFormatted} руб`);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    calculateBtn.click();
+    setTimeout(() => {
+        const inputs = document.querySelectorAll('.field-area:not(:last-child) .form-field');
+        inputs.forEach(item => item.value = '');
+    }, 100);
 });
