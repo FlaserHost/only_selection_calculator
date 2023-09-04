@@ -97,6 +97,30 @@ document.getElementById('show-functionality-btn').addEventListener('click', btn 
     btn.target.innerText = currentBtnText;
 });
 
+const discountData = document.querySelectorAll('.discount-field');
+const discountPercent = +discountData[0].value;
+const discountTime = discountData[1].value;
+
+const date = new Date();
+const year = date.getFullYear();
+const month = (date.getMonth() + 1).toString().padStart(2, '0');
+const day = date.getDate().toString().padStart(2, '0');
+const today = `${year}-${month}-${day}`;
+
+const discountDateParts = discountTime.split('.');
+const discountDateUS = `${discountDateParts[2]}-${discountDateParts[1]}-${discountDateParts[0]}`;
+const currentDate = new Date(today);
+const discountDate = new Date(discountDateUS);
+
+let discountExist = false;
+
+if (discountPercent > 0) {
+    discountExist = currentDate <= discountDate;
+}
+
+const calculateForm = document.getElementById('new-calculator-form');
+const calculateBtn = document.getElementById('calculate-btn');
+
 // логика расчета
 const priceList = {
     one_recruiter: 4000,
@@ -104,15 +128,8 @@ const priceList = {
     additional_connection: 950,
     allowance: 2000
 };
-
-const calculateForm = document.getElementById('new-calculator-form');
-const discountData = document.querySelectorAll('.discount-field');
-const calculateBtn = document.getElementById('calculate-btn');
-
-document.getElementById('calculate-btn').addEventListener('click', e => {
+calculateBtn.addEventListener('click', e => {
     e.preventDefault();
-    const discountPercent = +discountData[0].value;
-    const discountTime = discountData[1].value;
 
     const calculateData = [...new FormData(calculateForm)]; // аналогично как Array.from(new FormData(calculateForm))
 
@@ -134,7 +151,7 @@ document.getElementById('calculate-btn').addEventListener('click', e => {
         ratesPrices.forEach(item => item.classList.remove('discount-old-price'));
     }
 
-    if (discountPercent > 0) {
+    if (discountExist) {
         const prices = document.querySelectorAll('.prices');
 
         const fullMonthResult = fastStart - (fastStart * discountPercent / 100); // полная стоимость СТАРТ со скидкой (если есть)
@@ -161,10 +178,4 @@ document.getElementById('calculate-btn').addEventListener('click', e => {
     document.querySelectorAll('.extended').forEach(item => item.innerHTML = `${extendedFormatted} руб`);
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    calculateBtn.click();
-    setTimeout(() => {
-        const inputs = document.querySelectorAll('.field-area:not(:last-child) .form-field');
-        inputs.forEach(item => item.value = '');
-    }, 100);
-});
+document.addEventListener('DOMContentLoaded', () => discountExist && calculateBtn.click());
