@@ -97,6 +97,14 @@ document.getElementById('show-functionality-btn').addEventListener('click', btn 
     btn.target.innerText = currentBtnText;
 });
 
+// логика расчета
+const priceList = {
+    one_recruiter: 4000,
+    additional_recruiter: 1900,
+    additional_connection: 950,
+    allowance: 2000
+};
+
 const discountData = document.querySelectorAll('.discount-field');
 const discountPercent = +discountData[0].value;
 const discountTime = discountData[1].value;
@@ -121,13 +129,6 @@ if (discountPercent > 0) {
 const calculateForm = document.getElementById('new-calculator-form');
 const calculateBtn = document.getElementById('calculate-btn');
 
-// логика расчета
-const priceList = {
-    one_recruiter: 4000,
-    additional_recruiter: 1900,
-    additional_connection: 950,
-    allowance: 2000
-};
 calculateBtn.addEventListener('click', e => {
     e.preventDefault();
 
